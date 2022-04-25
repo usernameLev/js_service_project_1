@@ -15464,44 +15464,26 @@ module.exports = g;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _slider__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./slider */ "./src/js/slider.js");
-/* harmony import */ var _modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules */ "./src/js/modules/index.js");
+/* harmony import */ var _modules_modals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/modals */ "./src/js/modules/modals.js");
+/* harmony import */ var _modules_tabs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/tabs */ "./src/js/modules/tabs.js");
+
 
 
 window.addEventListener('DOMContentLoaded', function () {
-  Object(_modules__WEBPACK_IMPORTED_MODULE_1__["modals"])();
-  Object(_modules__WEBPACK_IMPORTED_MODULE_1__["tabs"])({
+  Object(_modules_modals__WEBPACK_IMPORTED_MODULE_1__["modals"])();
+  Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["tabs"])({
     headerSelector: '.glazing_slider',
     tabSelector: '.glazing_block',
     contentSelector: '.glazing_content',
     activeClass: 'active'
   });
-  Object(_modules__WEBPACK_IMPORTED_MODULE_1__["tabs"])({
+  Object(_modules_tabs__WEBPACK_IMPORTED_MODULE_2__["tabs"])({
     headerSelector: '.decoration_slider',
     tabSelector: '.no_click',
     contentSelector: '.decoration_content > div > div',
     activeClass: 'after_click'
   });
 });
-
-/***/ }),
-
-/***/ "./src/js/modules/index.js":
-/*!*********************************!*\
-  !*** ./src/js/modules/index.js ***!
-  \*********************************/
-/*! exports provided: modals, tabs */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modals */ "./src/js/modules/modals.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "modals", function() { return _modals__WEBPACK_IMPORTED_MODULE_0__["modals"]; });
-
-/* harmony import */ var _tabs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./tabs */ "./src/js/modules/tabs.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "tabs", function() { return _tabs__WEBPACK_IMPORTED_MODULE_1__["tabs"]; });
-
-
-
 
 /***/ }),
 
@@ -15517,6 +15499,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "modals", function() { return modals; });
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_0__);
+
 
 var modals = function modals() {
   var bindModal = function bindModal(_ref) {
@@ -15582,6 +15565,8 @@ var modals = function modals() {
   });
 };
 
+
+
 /***/ }),
 
 /***/ "./src/js/modules/tabs.js":
@@ -15600,21 +15585,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
 
 
+
 var tabs = function tabs(_ref) {
   var headerSelector = _ref.headerSelector,
       tabSelector = _ref.tabSelector,
       contentSelector = _ref.contentSelector,
       activeClass = _ref.activeClass;
-  var headers = document.querySelector(headerSelector),
+  var header = document.querySelector(headerSelector),
       tab = document.querySelectorAll(tabSelector),
       content = document.querySelectorAll(contentSelector);
 
-  var hideTabContents = function hideTabContents() {
-    content.forEach(function (hideTabContent) {
-      hideTabContent.style.display = 'none';
+  var hideTabContent = function hideTabContent() {
+    content.forEach(function (item) {
+      item.style.display = 'none';
     });
-    tab.forEach(function (hideTabContent) {
-      hideTabContent.classList.remove(activeClass);
+    tab.forEach(function (item) {
+      item.classList.remove(activeClass);
     });
   };
 
@@ -15624,21 +15610,23 @@ var tabs = function tabs(_ref) {
     tab[i].classList.add(activeClass);
   };
 
-  hideTabContents();
+  hideTabContent();
   showTabContent();
-  headers.addEventListener('click', function (e) {
+  header.addEventListener('click', function (e) {
     var target = e.target;
 
     if (target && (target.classList.contains(tabSelector.replace(/\./, '')) || target.parentNode.classList.contains(tabSelector.replace(/\./, '')))) {
-      tab.forEach(function (hideTabContent, i) {
-        if (target == hideTabContent || target.parentNode == hideTabContent) {
-          hideTabContents();
+      tab.forEach(function (item, i) {
+        if (target == item || target.parentNode == item) {
+          hideTabContent();
           showTabContent(i);
         }
       });
     }
   });
 };
+
+
 
 /***/ }),
 
