@@ -1,20 +1,20 @@
-export const tabs = ({
+const tabs = ({
   headerSelector,
   tabSelector,
   contentSelector,
   activeClass,
 }) => {
-  const headers = document.querySelector(headerSelector),
+  const header = document.querySelector(headerSelector),
     tab = document.querySelectorAll(tabSelector),
     content = document.querySelectorAll(contentSelector);
 
-  const hideTabContents = () => {
-    content.forEach((hideTabContent) => {
-      hideTabContent.style.display = 'none';
+  const hideTabContent = () => {
+    content.forEach((item) => {
+      item.style.display = 'none';
     });
 
-    tab.forEach((hideTabContent) => {
-      hideTabContent.classList.remove(activeClass);
+    tab.forEach((item) => {
+      item.classList.remove(activeClass);
     });
   };
 
@@ -23,22 +23,24 @@ export const tabs = ({
     tab[i].classList.add(activeClass);
   };
 
-  hideTabContents();
+  hideTabContent();
   showTabContent();
 
-  headers.addEventListener('click', (e) => {
+  header.addEventListener('click', (e) => {
     const target = e.target;
     if (
       target &&
       (target.classList.contains(tabSelector.replace(/\./, '')) ||
         target.parentNode.classList.contains(tabSelector.replace(/\./, '')))
     ) {
-      tab.forEach((hideTabContent, i) => {
-        if (target == hideTabContent || target.parentNode == hideTabContent) {
-          hideTabContents();
+      tab.forEach((item, i) => {
+        if (target == item || target.parentNode == item) {
+          hideTabContent();
           showTabContent(i);
         }
       });
     }
   });
 };
+
+export { tabs };

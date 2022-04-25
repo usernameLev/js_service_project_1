@@ -1,4 +1,4 @@
-export const modals = () => {
+const modals = () => {
   const bindModal = ({ triggerSelector, modalSelector, closeSelector }) => {
     const triggers = document.querySelectorAll(triggerSelector),
       modal = document.querySelector(modalSelector),
@@ -64,3 +64,5 @@ export const modals = () => {
     time: 3000,
   });
 };
+
+export { modals };
