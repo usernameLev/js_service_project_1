@@ -1,11 +1,16 @@
 const modals = () => {
   function bindModal(triggerSelector, modalSelector, closeSelector) {
-    const trigger = document.querySelectorAll(triggerSelector),
+    const triggers = document.querySelectorAll(triggerSelector),
       modal = document.querySelector(modalSelector),
       close = document.querySelector(closeSelector);
 
-    trigger.forEach((item) => {
-      item.addEventListener('click', (e) => {
+    const closeModal = () => {
+      modal.style.display = 'none';
+      document.body.style.overflow = '';
+    };
+
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
         if (e.target) {
           e.preventDefault();
         }
@@ -17,21 +22,19 @@ const modals = () => {
     });
 
     close.addEventListener('click', () => {
-      modal.style.display = 'none';
-      document.body.style.overflow = '';
+      closeModal();
       // document.body.classList.remove('modal-open');
     });
 
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
+        closeModal();
         // document.body.classList.remove('modal-open');
       }
     });
   }
 
-  function showModalByTime(selector, time) {
+  function showModalByTime({ selector, time }) {
     setTimeout(function () {
       document.querySelector(selector).style.display = 'block';
       document.body.style.overflow = 'hidden';
@@ -44,7 +47,10 @@ const modals = () => {
     '.popup_engineer .popup_close'
   );
   bindModal('.phone_link', '.popup', '.popup .popup_close');
-  showModalByTime('.popup', 3000);
+  showModalByTime({
+    selector: '.popup',
+    time: 3000,
+  });
 };
 
-export default modals;
+export {modals};
