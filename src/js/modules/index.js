@@ -1,2 +1,2 @@
-export {modals} from './modals';
+export { modals } from './modals';
 export { tabs } from './tabs';
