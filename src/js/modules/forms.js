@@ -1,5 +1,5 @@
 export const forms = () => {
-  const form = document.querySelectorAll('form'),
+  const forms = document.querySelectorAll('form'),
     inputs = document.querySelectorAll('input'),
     phoneInputs = document.querySelectorAll(`input[name='user_phone']`);
 
@@ -17,7 +17,7 @@ export const forms = () => {
 
   const postData = async (url, data) => {
     document.querySelector('.status').textContent = message.loading;
-    let res = await fetch(url, {
+    const res = await fetch(url, {
       method: 'POST',
       body: data,
     });
@@ -25,20 +25,20 @@ export const forms = () => {
   };
 
   const clearInputs = () => {
-    inputs.forEach((clearInput) => {
-      clearInput.value = '';
+    inputs.forEach((input) => {
+      input.value = '';
     });
   };
 
-  form.forEach((sendMessage) => {
-    sendMessage.addEventListener('submit', (e) => {
+  forms.forEach((form) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      let statusMessage = document.createElement('div');
+      const statusMessage = document.createElement('div');
       statusMessage.classList.add('status');
-      sendMessage.appendChild(statusMessage);
+      form.appendChild(statusMessage);
 
-      const formData = new FormData(sendMessage);
+      const formData = new FormData(form);
 
       postData('assets/server.php', formData)
         .then((res) => {
