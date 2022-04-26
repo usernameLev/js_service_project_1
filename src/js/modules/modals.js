@@ -1,8 +1,14 @@
 export const modals = () => {
-  const bindModal = ({ triggerSelector, modalSelector, closeSelector }) => {
+  const bindModal = ({
+    triggerSelector,
+    modalSelector,
+    closeSelector,
+    closeClickOverlay = true,
+  }) => {
     const triggers = document.querySelectorAll(triggerSelector),
       modal = document.querySelector(modalSelector),
-      close = document.querySelector(closeSelector);
+      close = document.querySelector(closeSelector),
+      windows = document.querySelectorAll('[data-modal]');
 
     const closeModal = () => {
       modal.style.display = 'none';
@@ -21,6 +27,10 @@ export const modals = () => {
           e.preventDefault();
         }
 
+        windows.forEach((window) => {
+          window.style.display = 'none';
+        });
+
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
         // document.body.classList.add('modal-open');
@@ -28,12 +38,20 @@ export const modals = () => {
     });
 
     close.addEventListener('click', () => {
+      windows.forEach((window) => {
+        window.style.display = 'none';
+      });
+
       closeModal();
       // document.body.classList.remove('modal-open');
     });
 
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
+      if (e.target === modal && closeClickOverlay) {
+        windows.forEach((window) => {
+          window.style.display = 'none';
+        });
+
         closeModal();
         // document.body.classList.remove('modal-open');
       }
@@ -57,6 +75,26 @@ export const modals = () => {
     triggerSelector: '.phone_link',
     modalSelector: '.popup',
     closeSelector: '.popup .popup_close',
+  });
+
+  bindModal({
+    triggerSelector: '.popup_calc_btn',
+    modalSelector: '.popup_calc',
+    closeSelector: '.popup_calc_close',
+  });
+
+  bindModal({
+    triggerSelector: '.popup_calc_button',
+    modalSelector: '.popup_calc_profile',
+    closeSelector: '.popup_calc_profile_close',
+    closeClickOverlay: false,
+  });
+
+  bindModal({
+    triggerSelector: '.popup_calc_profile_button',
+    modalSelector: '.popup_calc_end',
+    closeSelector: '.popup_calc_end_close',
+    closeClickOverlay: false,
   });
 
   showModalByTime({
