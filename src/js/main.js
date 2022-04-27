@@ -1,6 +1,5 @@
 import './slider';
-import { modals, tabs, forms } from './modules';
-import changeModalState from './modules/changeModalState';
+import { modals, tabs, forms, changeModalState } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
