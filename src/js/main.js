@@ -1,8 +1,13 @@
 import './slider';
-import { modals, tabs, forms } from './modules';
+import { modals, tabs, forms, changeModalState } from './modules';
 
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
+
+  let modalState = {};
+
+  changeModalState(modalState);
+
   modals();
 
   tabs({
@@ -26,5 +31,5 @@ window.addEventListener('DOMContentLoaded', () => {
     activeClass: 'do_image_more',
     display: 'inline-block',
   });
-  forms();
+  forms(modalState);
 });
