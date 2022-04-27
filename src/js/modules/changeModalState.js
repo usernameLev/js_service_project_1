@@ -1,4 +1,4 @@
-import {checkNumInputs} from './checkNumInputs';
+import { checkNumInputs } from './checkNumInputs';
 
 export const changeModalState = (state) => {
   const windowForm = document.querySelectorAll('.balcon_icons_img'),
@@ -18,15 +18,7 @@ export const changeModalState = (state) => {
             state[prop] = i;
             break;
           case 'INPUT':
-            if (elem.getAttribute('type') === 'checkbox') {
-              i === 0 ? (state[prop] = 'Холодное') : (state[prop] = 'Теплое');
-              elems.forEach((elem, j) => {
-                elem.checked = false;
-                if (i == j) {
-                  elem.checked = true;
-                }
-              });
-            } else {
+            if (elems.checked !== false) {
               state[prop] = elem.value;
             }
             break;
