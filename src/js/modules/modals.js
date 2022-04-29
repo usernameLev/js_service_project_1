@@ -34,6 +34,14 @@ export const modals = () => {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
         // document.body.classList.add('modal-open');
+
+        if (
+          document.querySelector(`${modalSelector} input:not([type='radio'])`)
+        ) {
+          document.querySelector <
+            HTMLElement >
+            `${modalSelector} input:not([type='radio'])`.focus();
+        }
       });
     });
 
@@ -62,8 +70,35 @@ export const modals = () => {
     setTimeout(() => {
       document.querySelector(selector).style.display = 'block';
       document.body.style.overflow = 'hidden';
+      document.querySelector('#modalFocus').focus();
     }, time);
   };
+
+  const popupCalcBtns = document.querySelectorAll('.popup_calc_btn');
+  const modalFocusCalc = () => {
+    popupCalcBtns.forEach((popupCalcBtn) => {
+      popupCalcBtn.addEventListener('click', () => {
+        setTimeout(() => {
+          document.querySelector('#width').focus();
+        }, 100);
+      });
+    });
+  };
+  modalFocusCalc();
+
+  const popupCalcProfileButtons = document.querySelectorAll(
+    '.popup_calc_profile_button',
+  );
+  const endModlaFocusCalc = () => {
+    popupCalcProfileButtons.forEach((popupCalcProfileButton) => {
+      popupCalcProfileButton.addEventListener('click', () => {
+        setTimeout(() => {
+          document.querySelector('#endModlaFocusCalc').focus();
+        }, 100);
+      });
+    });
+  };
+  endModlaFocusCalc();
 
   bindModal({
     triggerSelector: '.popup_engineer_btn',
