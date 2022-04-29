@@ -72,11 +72,25 @@ export const modals = () => {
       popup_calc_btn.addEventListener('click', () => {
         setTimeout(() => {
           document.querySelector('#width').focus();
-        }, 500);
+        }, 100);
       });
     });
   };
   modalFocusCalc();
+
+  const popup_calc_profile_buttons = document.querySelectorAll(
+    '.popup_calc_profile_button',
+  );
+  const endModlaFocusCalc = () => {
+    popup_calc_profile_buttons.forEach((popup_calc_profile_button) => {
+      popup_calc_profile_button.addEventListener('click', () => {
+        setTimeout(() => {
+          document.querySelector('#endModlaFocusCalc').focus();
+        }, 100);
+      });
+    });
+  };
+  endModlaFocusCalc();
 
   bindModal({
     triggerSelector: '.popup_engineer_btn',
