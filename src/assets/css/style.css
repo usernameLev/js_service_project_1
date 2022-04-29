@@ -120,13 +120,11 @@ textarea:focus {
   font-style: normal;
   border: 1px solid #ffc600;
   border-radius: 1rem;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#ffed26),
-    to(#ffb400)
-  );
+  background: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(#ffed26),
+      to(#ffb400));
   background: linear-gradient(180deg, #ffed26 0%, #ffb400 100%);
   -webkit-box-shadow: 1px 2px 20px 0px rgba(255, 153, 0, 0.4);
   box-shadow: 1px 2px 20px 0px rgba(255, 153, 0, 0.4);
@@ -383,7 +381,7 @@ textarea:focus {
   margin-bottom: 2rem;
 }
 
-.glazing_block a {
+.glazing_block>div {
   font-size: 1.8rem;
   font-weight: 600;
   text-decoration: underline;
@@ -404,20 +402,16 @@ textarea:focus {
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px;
   border-top: 0.5rem solid #0089cd;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#c7dce9),
-    color-stop(0%, #c7dce9),
-    to(rgba(255, 255, 255, 0))
-  );
-  background: linear-gradient(
-    180deg,
-    #c7dce9 0%,
-    #c7dce9 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(#c7dce9),
+      color-stop(0%, #c7dce9),
+      to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(180deg,
+      #c7dce9 0%,
+      #c7dce9 0%,
+      rgba(255, 255, 255, 0) 100%);
 }
 
 .glazing_cold h3 {
@@ -437,20 +431,16 @@ textarea:focus {
   border-bottom-right-radius: 5px;
   border-top-right-radius: 5px;
   border-top: 0.5rem solid #ffb903;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#f7eac9),
-    color-stop(0%, #f7eac9),
-    to(rgba(255, 255, 255, 0))
-  );
-  background: linear-gradient(
-    180deg,
-    #f7eac9 0%,
-    #f7eac9 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(#f7eac9),
+      color-stop(0%, #f7eac9),
+      to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(180deg,
+      #f7eac9 0%,
+      #f7eac9 0%,
+      rgba(255, 255, 255, 0) 100%);
 }
 
 .glazing_warm h3 {
@@ -569,20 +559,16 @@ textarea:focus {
   border-top: 1rem solid #0089cd;
   height: 8rem;
   padding: 2rem 0;
-  background: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    from(#ebebeb),
-    color-stop(0%, #ebebeb),
-    to(rgba(255, 255, 255, 0))
-  );
-  background: linear-gradient(
-    180deg,
-    #ebebeb 0%,
-    #ebebeb 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  background: -webkit-gradient(linear,
+      left top,
+      left bottom,
+      from(#ebebeb),
+      color-stop(0%, #ebebeb),
+      to(rgba(255, 255, 255, 0)));
+  background: linear-gradient(180deg,
+      #ebebeb 0%,
+      #ebebeb 0%,
+      rgba(255, 255, 255, 0) 100%);
 }
 
 .decoration_content {
@@ -741,6 +727,7 @@ textarea:focus {
 .container1 {
   display: inline-block;
 }
+
 .numbers1 {
   display: block;
   float: left;
@@ -755,6 +742,7 @@ textarea:focus {
   border-radius: 7px;
   padding: 4px;
 }
+
 .description1 {
   font-size: 18px;
   text-align: center;
@@ -1075,7 +1063,7 @@ textarea:focus {
   vertical-align: middle;
 }
 
-.popup_calc_profile_content .checkbox:checked + .checkbox-custom::before {
+.popup_calc_profile_content .checkbox:checked+.checkbox-custom::before {
   content: '';
   display: block;
   position: absolute;
@@ -1875,4 +1863,27 @@ textarea:focus {
 
 .feedback_block a:focus {
   border: 1px solid #ffffff;
+}
+
+.popup_close:focus,
+.popup_calc_close:focus,
+.popup_calc_profile_close:focus {
+  box-shadow: 1px 2px 20px 0px rgb(255 153 0);
+}
+
+.glazing_block,
+.balcon_icons_img {
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.glazing_block:focus-within,
+.balcon_icons_img:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%), 0 0 8px rgb(102 175 233 / 60%);
+}
+
+.checkbox-custom:focus {
+  border: 1px solid red;
 }

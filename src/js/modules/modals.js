@@ -62,8 +62,21 @@ export const modals = () => {
     setTimeout(() => {
       document.querySelector(selector).style.display = 'block';
       document.body.style.overflow = 'hidden';
+      document.querySelector('#modalFocus').focus();
     }, time);
   };
+
+  const popup_calc_btns = document.querySelectorAll('.popup_calc_btn');
+  const modalFocusCalc = () => {
+    popup_calc_btns.forEach((popup_calc_btn) => {
+      popup_calc_btn.addEventListener('click', () => {
+        setTimeout(() => {
+          document.querySelector('#width').focus();
+        }, 500);
+      });
+    });
+  };
+  modalFocusCalc();
 
   bindModal({
     triggerSelector: '.popup_engineer_btn',
