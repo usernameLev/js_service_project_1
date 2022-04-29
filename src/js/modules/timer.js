@@ -1,10 +1,6 @@
 export const timer = ({ id, deadline }) => {
   const addZero = (num) => {
-    if (num <= 9) {
-      return '0' + num;
-    } else {
-      return num;
-    }
+    return num <= 9 ? '0' + num : num;
   };
 
   const getTimeRemaining = (endtime) => {
@@ -16,10 +12,10 @@ export const timer = ({ id, deadline }) => {
 
     return {
       total: t,
-      days: days,
-      hours: hours,
-      minutes: minutes,
-      seconds: seconds,
+      days,
+      hours,
+      minutes,
+      seconds,
     };
   };
 

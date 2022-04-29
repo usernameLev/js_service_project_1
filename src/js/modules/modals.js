@@ -34,6 +34,14 @@ export const modals = () => {
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
         // document.body.classList.add('modal-open');
+
+        if (
+          document.querySelector(`${modalSelector} input:not([type='radio'])`)
+        ) {
+          document.querySelector <
+            HTMLElement >
+            `${modalSelector} input:not([type='radio'])`.focus();
+        }
       });
     });
 
@@ -66,10 +74,10 @@ export const modals = () => {
     }, time);
   };
 
-  const popup_calc_btns = document.querySelectorAll('.popup_calc_btn');
+  const popupCalcBtns = document.querySelectorAll('.popup_calc_btn');
   const modalFocusCalc = () => {
-    popup_calc_btns.forEach((popup_calc_btn) => {
-      popup_calc_btn.addEventListener('click', () => {
+    popupCalcBtns.forEach((popupCalcBtn) => {
+      popupCalcBtn.addEventListener('click', () => {
         setTimeout(() => {
           document.querySelector('#width').focus();
         }, 100);
@@ -78,12 +86,12 @@ export const modals = () => {
   };
   modalFocusCalc();
 
-  const popup_calc_profile_buttons = document.querySelectorAll(
+  const popupCalcProfileButtons = document.querySelectorAll(
     '.popup_calc_profile_button',
   );
   const endModlaFocusCalc = () => {
-    popup_calc_profile_buttons.forEach((popup_calc_profile_button) => {
-      popup_calc_profile_button.addEventListener('click', () => {
+    popupCalcProfileButtons.forEach((popupCalcProfileButton) => {
+      popupCalcProfileButton.addEventListener('click', () => {
         setTimeout(() => {
           document.querySelector('#endModlaFocusCalc').focus();
         }, 100);

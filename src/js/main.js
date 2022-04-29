@@ -4,7 +4,7 @@ import { modals, tabs, forms, changeModalState, timer } from './modules';
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  let modalState = {};
+  const modalState = {};
   let deadline = '2022-05-01';
 
   changeModalState(modalState);
@@ -37,6 +37,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
   timer({
     id: '.container1',
-    deadline: deadline,
+    deadline,
   });
 });
