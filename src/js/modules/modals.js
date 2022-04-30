@@ -107,8 +107,6 @@ export const modals = () => {
   };
   endModlaFocusCalc();
 
-  
-
   bindModal({
     triggerSelector: '.popup_engineer_btn',
     modalSelector: '.popup_engineer',
