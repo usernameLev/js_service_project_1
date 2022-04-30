@@ -107,6 +107,8 @@ export const modals = () => {
   };
   endModlaFocusCalc();
 
+  
+
   bindModal({
     triggerSelector: '.popup_engineer_btn',
     modalSelector: '.popup_engineer',
@@ -139,8 +141,8 @@ export const modals = () => {
     closeClickOverlay: false,
   });
 
-  showModalByTime({
-    selector: '.popup',
-    time: 3000,
-  });
+  // showModalByTime({
+  //   selector: '.popup',
+  //   time: 3000,
+  // });
 };
