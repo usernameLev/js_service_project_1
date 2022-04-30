@@ -35,12 +35,19 @@ export const modals = () => {
         document.body.style.overflow = 'hidden';
         // document.body.classList.add('modal-open');
 
+        // const inputElement = document.querySelector(
+        //   `${modalSelector} input:not([type='radio'])`
+        // );
+        // if (inputElement) {
+        //   inputElement.focus();
+        // }
+
         if (
           document.querySelector(`${modalSelector} input:not([type='radio'])`)
         ) {
-          document.querySelector <
-            HTMLElement >
-            `${modalSelector} input:not([type='radio'])`.focus();
+          document
+            .querySelector(`${modalSelector} input:not([type='radio'])`)
+            .focus();
         }
       });
     });
