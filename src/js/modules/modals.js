@@ -139,8 +139,8 @@ export const modals = () => {
     closeClickOverlay: false,
   });
 
-  showModalByTime({
-    selector: '.popup',
-    time: 3000,
-  });
+  // showModalByTime({
+  //   selector: '.popup',
+  //   time: 3000,
+  // });
 };
